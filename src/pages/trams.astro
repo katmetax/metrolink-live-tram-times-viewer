@@ -1,0 +1,21 @@
+---
+import TypeWriter from '../components/TypeWriter';
+import Layout from '../layouts/Layout.astro';
+
+---
+
+<Layout title="Metrolink tram times">
+	<main class="container">
+		<div class="grid">
+			<TypeWriter client:load />
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	}
+</style>

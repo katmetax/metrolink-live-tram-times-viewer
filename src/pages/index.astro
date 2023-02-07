@@ -1,0 +1,45 @@
+---
+import FormField from '../components/FormField.astro';
+import Layout from '../layouts/Layout.astro';
+import tram from '../images/tram.svg';
+---
+
+<Layout title="Metrolink tram times">
+	<main class="container">
+		<form>
+		<div class="grid">
+			<div>
+				<h1>Find out when the next <span class="text-gradient">Metrolink</span> tram is...</h1>
+				<FormField label="From" placeholder="Bury" name="departure_stop"  />
+				<FormField label="To" placeholder="St. Peter's Square" name="arrival_stop" />
+				<button type="submit">Submit</button>
+			</div>
+			<div>
+				<img src={tram} width="100%" alt="Tram" />
+			</div>
+		</div>
+		</form>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+		max-height: 100vh;
+    overflow: hidden;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 1.5rem 0;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+</style>
