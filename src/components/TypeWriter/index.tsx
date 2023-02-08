@@ -6,9 +6,18 @@ const TypeWriter = () => {
 
 	const [text, setText] = useState('');
 
+	const sleep = (ms) => {
+		return new Promise((resolve) => setTimeout(resolve, ms));
+	};
+
 	useEffect(() => {
 		const timeout = setTimeout(() => {
 			setText(elipsis.slice(0, text.length + 1));
+			if (text === elipsis) {
+				sleep(1000).then(() => {
+					setText('');
+				});
+			}
 		}, 100);
 		return () => clearTimeout(timeout);
 	}, [text]);
