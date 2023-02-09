@@ -1,0 +1,15 @@
+.station-name {
+  text-transform: capitalize;
+}
+
+.change-search-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 780px) {
+  .change-search-container  {
+    justify-content: flex-start;
+  }
+}

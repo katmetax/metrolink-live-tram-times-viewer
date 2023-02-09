@@ -1,61 +1,12 @@
 ---
-import TypeWriter from '../components/TypeWriter';
+import { DisplayTrams } from '../components/DisplayTrams';
 import Layout from '../layouts/Layout.astro';
-import { data } from '../temp/mockTramData';
-
-const loading = false;
 
 ---
 
 <Layout title="Metrolink tram times">
 	<main class="container">
-    {loading && 
-      <div class="grid">
-        <TypeWriter client:load />
-      </div>
-    }
-
-{data && 
-    <h2>Next tram times from Bury are:</h2>
-    <table role="grid">
-        <thead>
-          <tr>
-            <th scope="col">Destination</th>
-            <th scope="col">Wait</th>
-            <th scope="col">Status</th>
-            <th scope="col">Carriage</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">{data[0].Dest0}</th>
-            <td>{data[0].Wait0} minutes</td>
-            <td>{data[0].Status0}</td>
-            <td>{data[0].Carriages0}</td>
-          </tr>
-          <tr>
-            <th scope="row">{data[0].Dest1}</th>
-            <td>{data[0].Wait1} minutes</td>
-            <td>{data[0].Status1}</td>
-            <td>{data[0].Carriages1}</td>
-          </tr>
-          <tr>
-            <th scope="row">{data[0].Dest2}</th>
-            <td>{data[0].Wait2} minutes</td>
-            <td>{data[0].Status2}</td>
-            <td>{data[0].Carriages2}</td>
-          </tr>
-        </tbody>
-    </table>
-
-    <div style="width: 100%">
-      <a href="/" style="float: right">Want to search for a different tram stop?</a>
-    </div>
-
-    <h2>Messages</h2>
-    <span>{data[0].MessageBoard}</span>
-  }
-
+    <DisplayTrams client:load />
 	</main>
 </Layout>
 

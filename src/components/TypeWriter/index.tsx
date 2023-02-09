@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import './styles.css';
 
-const TypeWriter = () => {
-	const elipsis = 'is in...';
-
+const TypeWriter = ({ stationName }) => {
 	const [text, setText] = useState('');
+	const elipsis = 'is in...';
 
 	const sleep = (ms) => {
 		return new Promise((resolve) => setTimeout(resolve, ms));
