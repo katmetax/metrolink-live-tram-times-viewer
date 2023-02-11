@@ -1,11 +1,16 @@
 import { useState, useEffect } from 'react';
 import './styles.css';
 
-const TypeWriter = ({ stationName }) => {
-	const [text, setText] = useState('');
-	const elipsis = 'is in...';
+interface Props {
+	departureStation: string;
+	arrivalStation: string;
+}
 
-	const sleep = (ms) => {
+const TypeWriter = ({ departureStation, arrivalStation }: Props) => {
+	const [text, setText] = useState('');
+	const elipsis = ' is in...';
+
+	const sleep = (ms: number) => {
 		return new Promise((resolve) => setTimeout(resolve, ms));
 	};
 
@@ -23,8 +28,15 @@ const TypeWriter = ({ stationName }) => {
 
 	return (
 		<h1>
-			The next tram from <span className='text-gradient'>Bury</span> <br /> to{' '}
-			<span className='text-gradient'>St. Peter's Square</span> {text}
+			The next tram from{' '}
+			<span className='text-gradient station-name'>{departureStation}</span>
+			{arrivalStation && (
+				<>
+					<br /> to{' '}
+					<span className='text-gradient station-name'>{arrivalStation}</span>
+				</>
+			)}
+			{text}
 		</h1>
 	);
 };

@@ -3,9 +3,10 @@ import type { APIRoute } from 'astro';
 export const get: APIRoute = async ({ request }) => {
 	const url = new URL(request.url);
 	const params = new URLSearchParams(url.search);
-	const stationName = params.get('stationName');
+	const departingFrom = params.get('departingFrom');
+	const arrivingTo = params.get('arrivingTo');
 
-	const recaptchaURL = `https://api.tfgm.com/odata/Metrolinks?$filter=StationLocation%20eq%20'${stationName}'`;
+	const recaptchaURL = `https://api.tfgm.com/odata/Metrolinks?$filter=StationLocation%20eq%20'${departingFrom}'`;
 
 	const response = await fetch(recaptchaURL, {
 		method: 'GET',

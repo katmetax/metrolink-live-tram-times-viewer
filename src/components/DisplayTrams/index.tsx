@@ -3,31 +3,45 @@ import TypeWriter from '../TypeWriter';
 
 import './styles.css';
 
+interface ITram {
+	Id: number;
+	MessageBoard: string;
+	[key: string]: string | number;
+}
+
 export const DisplayTrams = () => {
-	const [data, setData] = useState(null);
-	const [stationName, setStationName] = useState('');
+	const [data, setData] = useState<ITram[] | null>(null);
+	const [departureStation, setDepartureStation] = useState('');
+	const [arrivalStation, setArrivalStation] = useState('');
 
 	useEffect(() => {
 		const params = new URLSearchParams(window.location.search);
-		const stationName = params.get('departingFrom')?.toLowerCase();
+		const departingFrom = params.get('departingFrom')?.toLowerCase();
+		const arrivingTo = params.get('arrivingTo')?.toLowerCase();
 
-		setStationName(stationName || '');
+		setDepartureStation(departingFrom || '');
+		setArrivalStation(arrivingTo || '');
 	}, []);
 
 	useEffect(() => {
 		const getTramData = async () => {
-			const response = await fetch(`/getTrams?stationName=${stationName}`);
+			const response = await fetch(
+				`/getTrams?departingFrom=${departureStation}&arrivingTo=${arrivalStation}`
+			);
 			const tramData = await response.json();
 			setData(tramData);
 		};
 
 		getTramData().catch(console.error);
-	}, [stationName]);
+	}, [departureStation, arrivalStation]);
 
 	if (!data) {
 		return (
 			<div className='grid'>
-				<TypeWriter stationName={stationName} />
+				<TypeWriter
+					departureStation={departureStation}
+					arrivalStation={arrivalStation}
+				/>
 			</div>
 		);
 	}
@@ -35,8 +49,8 @@ export const DisplayTrams = () => {
 	return (
 		<>
 			<h2>
-				Next tram times from <span className='station-name'>{stationName}</span>{' '}
-				are:
+				The next trams from{' '}
+				<span className='station-name'>{departureStation}</span> are:
 			</h2>
 			<table role='grid'>
 				<thead>
@@ -48,7 +62,7 @@ export const DisplayTrams = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{data.map((tram, index) => {
+					{data.map((tram: ITram, index: number) => {
 						if (tram[`Dest${index}`] !== '') {
 							return (
 								<tr key={`${tram.Id + index}`}>
