@@ -36,7 +36,7 @@ const TypeWriter = ({ departureStation, arrivalStation }: Props) => {
 					<span className='text-gradient station-name'>{arrivalStation}</span>
 				</>
 			)}
-			{text}
+			{text || elipsis}
 		</h1>
 	);
 };

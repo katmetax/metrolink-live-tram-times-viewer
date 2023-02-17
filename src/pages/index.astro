@@ -6,13 +6,13 @@ import tram from '../images/tram.svg';
 
 <Layout title="Metrolink tram times">
 	<main class="container">
-		<form>
+		<form method="GET" action="/trams">
 		<div class="grid">
 			<div>
 				<h1>Find out when the next <span class="text-gradient">Metrolink</span> tram is...</h1>
-				<FormField label="From" placeholder="Bury" name="departure_stop"  />
-				<FormField label="To" placeholder="St. Peter's Square" name="arrival_stop" />
-				<a href="/trams?departingFrom=cornbrook"><button type="submit">Submit</button></a>
+				<FormField label="From" placeholder="Bury" name="departingFrom" required  />
+				<FormField label="To" placeholder="St. Peter's Square" name="arrivingTo" />
+				<button type="submit">Submit</button>
 			</div>
 			<div>
 				<img src={tram} width="100%" alt="Tram" />
