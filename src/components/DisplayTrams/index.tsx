@@ -3,25 +3,19 @@ import TypeWriter from '../TypeWriter';
 
 import './styles.css';
 
+interface Props {
+	departureStation: string;
+	arrivalStation: string;
+}
+
 interface ITram {
 	Id: number;
 	MessageBoard: string;
 	[key: string]: string | number;
 }
 
-export const DisplayTrams = () => {
+export const DisplayTrams = ({ departureStation, arrivalStation }: Props) => {
 	const [data, setData] = useState<ITram[] | null>(null);
-	const [departureStation, setDepartureStation] = useState('');
-	const [arrivalStation, setArrivalStation] = useState('');
-
-	useEffect(() => {
-		const params = new URLSearchParams(window.location.search);
-		const departingFrom = params.get('departingFrom')?.toLowerCase();
-		const arrivingTo = params.get('arrivingTo')?.toLowerCase();
-
-		setDepartureStation(departingFrom || '');
-		setArrivalStation(arrivingTo || '');
-	}, []);
 
 	useEffect(() => {
 		const getTramData = async () => {
@@ -33,7 +27,7 @@ export const DisplayTrams = () => {
 		};
 
 		getTramData().catch(console.error);
-	}, [departureStation, arrivalStation]);
+	}, []);
 
 	if (!data) {
 		return (
@@ -62,16 +56,22 @@ export const DisplayTrams = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{data.map((tram: ITram, index: number) => {
-						if (tram[`Dest${index}`] !== '') {
-							return (
-								<tr key={`${tram.Id + index}`}>
-									<th scope='row'>{tram[`Dest${index}`]}</th>
-									<td>{tram[`Wait${index}`]} minutes</td>
-									<td>{tram[`Status${index}`]}</td>
-									<td>{tram[`Carriages${index}`]}</td>
-								</tr>
-							);
+					{data.map((tram: ITram) => {
+						let n = 0;
+
+						// There are always a maximum of 3 trams returned per tram station
+						while (n < 3) {
+							if (!!tram[`Dest${n}`]) {
+								return (
+									<tr key={`${tram.Id + n}`}>
+										<th scope='row'>{tram[`Dest${n}`]}</th>
+										<td>{tram[`Wait${n}`]} minutes</td>
+										<td>{tram[`Status${n}`]}</td>
+										<td>{tram[`Carriages${n}`]}</td>
+									</tr>
+								);
+							}
+							n++;
 						}
 					})}
 				</tbody>
