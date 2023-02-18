@@ -6,29 +6,32 @@ import tram from '../images/tram.svg';
 
 <Layout title="Metrolink tram times">
 	<main class="container">
-		<form method="GET" action="/trams">
 		<div class="grid">
 			<div>
 				<h1>Find out when the next <span class="text-gradient">Metrolink</span> tram is...</h1>
-				<FormField label="From" placeholder="Bury" name="departingFrom" required  />
-				<FormField label="To" placeholder="St. Peter's Square" name="arrivingTo" />
-				<button type="submit">Submit</button>
+				<div class="form-container">
+					<form method="GET" action="/trams">
+						<FormField label="From" placeholder="Piccadilly Gardens" name="departingFrom" required  />
+						<button type="submit">Submit</button>
+					</form>
+				</div>
 			</div>
 			<div>
 				<img src={tram} width="100%" alt="Tram" />
 			</div>
 		</div>
-		</form>
 	</main>
 </Layout>
 
 <style>
 	main {
 		margin: auto;
-		padding: 1.5rem;
 		max-width: 60ch;
 		max-height: 100vh;
-    overflow: hidden;
+		overflow: hidden;
+	}
+	.grid {
+		padding: 0 1.5rem;
 	}
 	h1 {
 		font-size: 3rem;
@@ -41,5 +44,15 @@ import tram from '../images/tram.svg';
 		-webkit-text-fill-color: transparent;
 		background-size: 400%;
 		background-position: 0%;
+	}
+
+	@media screen and (max-width: 780px) {
+		h1 {
+			font-size: 2.5rem;
+		}
+
+		.form-container {
+			margin: 2rem 0 5rem;
+		}
 	}
 </style>

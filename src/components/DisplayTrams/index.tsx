@@ -56,24 +56,45 @@ export const DisplayTrams = ({ departureStation, arrivalStation }: Props) => {
 					</tr>
 				</thead>
 				<tbody>
-					{data.map((tram: ITram) => {
-						let n = 0;
+					{data.map((tram: ITram) => (
+						<>
+							{tram[`Dest${0}`] && (
+								<tr key={`${tram.Id + 0}`}>
+									<th scope='row'>{tram[`Dest${0}`]}</th>
+									<td>{tram[`Wait${0}`]} minutes</td>
+									<td>{tram[`Status${0}`]}</td>
+									<td>{tram[`Carriages${0}`]}</td>
+								</tr>
+							)}
 
-						// There are always a maximum of 3 trams returned per tram station
-						while (n < 3) {
-							if (!!tram[`Dest${n}`]) {
-								return (
-									<tr key={`${tram.Id + n}`}>
-										<th scope='row'>{tram[`Dest${n}`]}</th>
-										<td>{tram[`Wait${n}`]} minutes</td>
-										<td>{tram[`Status${n}`]}</td>
-										<td>{tram[`Carriages${n}`]}</td>
-									</tr>
-								);
-							}
-							n++;
-						}
-					})}
+							{tram[`Dest${1}`] && (
+								<tr key={`${tram.Id + 1}`}>
+									<th scope='row'>{tram[`Dest${1}`]}</th>
+									<td>{tram[`Wait${1}`]} minutes</td>
+									<td>{tram[`Status${1}`]}</td>
+									<td>{tram[`Carriages${1}`]}</td>
+								</tr>
+							)}
+
+							{tram[`Dest${2}`] && (
+								<tr key={`${tram.Id + 2}`}>
+									<th scope='row'>{tram[`Dest${2}`]}</th>
+									<td>{tram[`Wait${2}`]} minutes</td>
+									<td>{tram[`Status${2}`]}</td>
+									<td>{tram[`Carriages${2}`]}</td>
+								</tr>
+							)}
+
+							{tram[`Dest${3}`] && (
+								<tr key={`${tram.Id + 3}`}>
+									<th scope='row'>{tram[`Dest${3}`]}</th>
+									<td>{tram[`Wait${3}`]} minutes</td>
+									<td>{tram[`Status${3}`]}</td>
+									<td>{tram[`Carriages${3}`]}</td>
+								</tr>
+							)}
+						</>
+					))}
 				</tbody>
 			</table>
 

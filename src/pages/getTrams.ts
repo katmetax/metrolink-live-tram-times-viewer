@@ -28,7 +28,7 @@ export const get: APIRoute = async ({ request }) => {
 		...new Map(data.map((item) => [item[key], item])).values(),
 	];
 
-	// filter out any destinations with empty values
+	// Filter out any destinations with empty values
 	const getPopulatedData = (data: Data) =>
 		data.map((tram) =>
 			Object.fromEntries(

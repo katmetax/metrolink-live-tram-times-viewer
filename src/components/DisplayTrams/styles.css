@@ -1,5 +1,6 @@
 .station-name {
   text-transform: capitalize;
+  text-decoration: underline;
 }
 
 .change-search-container {
