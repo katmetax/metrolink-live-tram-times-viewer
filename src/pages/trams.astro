@@ -2,7 +2,7 @@
 import { DisplayTrams } from '../components/DisplayTrams';
 import Layout from '../layouts/Layout.astro';
 
-export const prerender = true;
+// export const prerender = true;
 
 const departingFrom = Astro.url.searchParams.get('departingFrom')?.toLowerCase() || '';
 const arrivingTo = Astro.url.searchParams.get('arrivingTo')?.toLowerCase() || '';
