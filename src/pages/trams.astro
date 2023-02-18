@@ -2,16 +2,12 @@
 import { DisplayTrams } from '../components/DisplayTrams';
 import Layout from '../layouts/Layout.astro';
 
-export const prerender = true;
-
-const requestURL = new URL(Astro.request.url);
-const departingFrom =requestURL.searchParams.get('departingFrom')?.toLowerCase() || '';
-const arrivingTo = requestURL.searchParams.get('arrivingTo')?.toLowerCase() || '';
+const departingFrom = Astro.url.searchParams.get('departingFrom')?.toLowerCase() || '';
 
 ---
 <Layout title="Metrolink tram times">
 	<main class="container">
-    <DisplayTrams departureStation={departingFrom} arrivalStation={arrivingTo} client:load />
+    <DisplayTrams departureStation={departingFrom} client:load />
 	</main>
 </Layout>
 

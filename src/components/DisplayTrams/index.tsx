@@ -5,7 +5,6 @@ import './styles.css';
 
 interface Props {
 	departureStation: string;
-	arrivalStation: string;
 }
 
 interface ITram {
@@ -14,13 +13,13 @@ interface ITram {
 	[key: string]: string | number;
 }
 
-export const DisplayTrams = ({ departureStation, arrivalStation }: Props) => {
+export const DisplayTrams = ({ departureStation }: Props) => {
 	const [data, setData] = useState<ITram[] | null>(null);
 
 	useEffect(() => {
 		const getTramData = async () => {
 			const response = await fetch(
-				`/getTrams?departingFrom=${departureStation}&arrivingTo=${arrivalStation}`
+				`/getTrams?departingFrom=${departureStation}`
 			);
 			const tramData = await response.json();
 			setData(tramData);
@@ -32,10 +31,7 @@ export const DisplayTrams = ({ departureStation, arrivalStation }: Props) => {
 	if (!data) {
 		return (
 			<div className='grid'>
-				<TypeWriter
-					departureStation={departureStation}
-					arrivalStation={arrivalStation}
-				/>
+				<TypeWriter departureStation={departureStation} />
 			</div>
 		);
 	}

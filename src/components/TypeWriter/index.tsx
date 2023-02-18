@@ -3,10 +3,9 @@ import './styles.css';
 
 interface Props {
 	departureStation: string;
-	arrivalStation: string;
 }
 
-const TypeWriter = ({ departureStation, arrivalStation }: Props) => {
+const TypeWriter = ({ departureStation }: Props) => {
 	const [text, setText] = useState('');
 	const elipsis = ' is in...';
 
@@ -30,12 +29,6 @@ const TypeWriter = ({ departureStation, arrivalStation }: Props) => {
 		<h1>
 			The next tram from{' '}
 			<span className='text-gradient station-name'>{departureStation}</span>
-			{arrivalStation && (
-				<>
-					<br /> to{' '}
-					<span className='text-gradient station-name'>{arrivalStation}</span>
-				</>
-			)}
 			{text || elipsis}
 		</h1>
 	);
