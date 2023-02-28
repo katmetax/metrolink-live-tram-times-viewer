@@ -14,8 +14,8 @@ export default defineConfig({
 		AstroPWA({
 			includeAssets: ['favicon.svg', 'apple-icon-180.png'],
 			manifest: {
-				name: 'Metrolink tram times',
-				short_name: 'MetTramTimes',
+				name: 'Metrolink Tram Times',
+				short_name: 'Metrolink Tram Times',
 				description: 'Find out when the next Manchester Metrolink tram is',
 				theme_color: '#11191f',
 				icons: [
