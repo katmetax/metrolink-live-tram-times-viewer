@@ -12,6 +12,7 @@ export default defineConfig({
 	integrations: [
 		react(),
 		AstroPWA({
+			registerType: 'autoUpdate',
 			includeAssets: ['/icons/favicon.svg', '/icons/apple-icon-180.png'],
 			manifest: {
 				name: 'Metrolink Tram Times',
