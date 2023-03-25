@@ -24,11 +24,13 @@ export const FormFieldWithAutocomplete = ({
 
 	const changeHandler = (inputVal: string) => {
 		const results = Object.entries(tramStops).filter(([_, value]) =>
-			value.toLowerCase().match(inputVal)
+			value.toLowerCase().match(inputVal.toLowerCase())
 		);
 
 		if (inputVal.length > 1) {
 			setAutocompleteResults(results);
+		} else {
+			setAutocompleteResults([]);
 		}
 	};
 
