@@ -20,7 +20,7 @@ stopDictionary = dict()
 # The TFGM API accepts some tram stops under very particular names
 stPetersSquare = "St Peter's Square"
 fixedStPetersSquare = "St Peter''s Square"
-deansgate = "Deansgate Castlefield"
+deansgate = "Deansgate-Castlefield"
 fixedDeansgate = "Deansgate - Castlefield"
 
 for stop in tramStops:
@@ -34,6 +34,6 @@ for stop in tramStops:
         # { "Piccadilly Gardens": "Piccadilly Gardens" }
         stopDictionary[stop] = stop
 
-with open('./tram-stops/tramStops.json', 'w', encoding='utf-8') as json_file:
+with open('./src/data/tramStops.json', 'w', encoding='utf-8') as json_file:
     json.dump(stopDictionary, json_file, ensure_ascii=False, indent=4)
 json_file.close()

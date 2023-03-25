@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import TypeWriter from '../TypeWriter';
+import json from '../../data/tramStops.json';
 
 import './styles.css';
 
@@ -13,8 +14,12 @@ interface ITram {
 	[key: string]: string | number;
 }
 
+const tramStops = json;
+
 export const DisplayTrams = ({ departureStation }: Props) => {
 	const [data, setData] = useState<ITram[] | null>(null);
+	const prettyDepartureStation =
+		tramStops[departureStation as keyof typeof tramStops];
 
 	useEffect(() => {
 		const getTramData = async () => {
@@ -31,7 +36,7 @@ export const DisplayTrams = ({ departureStation }: Props) => {
 	if (!data) {
 		return (
 			<div className='grid'>
-				<TypeWriter departureStation={departureStation} />
+				<TypeWriter departureStation={prettyDepartureStation} />
 			</div>
 		);
 	}
@@ -40,7 +45,7 @@ export const DisplayTrams = ({ departureStation }: Props) => {
 		<>
 			<h2>
 				The next trams from{' '}
-				<span className='station-name'>{departureStation}</span> are:
+				<span className='station-name'>{prettyDepartureStation}</span> are:
 			</h2>
 			<table role='grid'>
 				<thead>

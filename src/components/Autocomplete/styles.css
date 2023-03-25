@@ -1,0 +1,21 @@
+.autocomplete-list {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  margin-top: -1.5rem;
+}
+
+.autocomplete-list.hide {
+  display: none;
+}
+
+.autocomplete-list--item {
+  background-color: white;
+  color: black;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.autocomplete-list--item:hover {
+  background-color: lightgray;
+}

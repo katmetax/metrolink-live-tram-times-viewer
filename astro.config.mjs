@@ -12,7 +12,7 @@ export default defineConfig({
 	integrations: [
 		react(),
 		AstroPWA({
-			includeAssets: ['favicon.svg', 'apple-icon-180.png'],
+			includeAssets: ['/icons/favicon.svg', '/icons/apple-icon-180.png'],
 			manifest: {
 				name: 'Metrolink Tram Times',
 				short_name: 'Metrolink Tram Times',
@@ -20,17 +20,17 @@ export default defineConfig({
 				theme_color: '#11191f',
 				icons: [
 					{
-						src: 'manifest-icon-192.maskable.png',
+						src: '/icons/manifest-icon-192.maskable.png',
 						sizes: '192x192',
 						type: 'image/png',
 					},
 					{
-						src: 'manifest-icon-512.maskable.png',
+						src: '/icons/manifest-icon-512.maskable.png',
 						sizes: '512x512',
 						type: 'image/png',
 					},
 					{
-						src: 'manifest-icon-512.maskable.png',
+						src: '/icons/manifest-icon-512.maskable.png',
 						sizes: '512x512',
 						type: 'image/png',
 						purpose: 'any maskable',

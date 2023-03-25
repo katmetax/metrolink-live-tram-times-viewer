@@ -1,7 +1,7 @@
 ---
-import FormField from '../components/FormField.astro';
 import Layout from '../layouts/Layout.astro';
 import tram from '../images/tram.svg';
+import { FormFieldWithAutocomplete } from '../components/FormFieldWithAutocomplete';
 ---
 
 <Layout title="Metrolink tram times">
@@ -11,7 +11,7 @@ import tram from '../images/tram.svg';
 				<h1>Find out when the next <span class="text-gradient">Metrolink</span> tram is...</h1>
 				<div class="form-container">
 					<form method="GET" action="/trams">
-						<FormField label="From" placeholder="Piccadilly Gardens" name="departingFrom" required  />
+						<FormFieldWithAutocomplete label="From" placeholder="Piccadilly Gardens" name="departingFrom" required client:load />
 						<button type="submit">Submit</button>
 					</form>
 				</div>

@@ -2,7 +2,7 @@
 import { DisplayTrams } from '../components/DisplayTrams';
 import Layout from '../layouts/Layout.astro';
 
-const departingFrom = Astro.url.searchParams.get('departingFrom')?.toLowerCase() || '';
+const departingFrom = Astro.url.searchParams.get('departingFrom') || '';
 
 ---
 <Layout title="Metrolink tram times">
