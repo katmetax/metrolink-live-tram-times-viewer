@@ -1,6 +1,8 @@
 # Metrolink Tram Times PWA
 
-**Site:** https://startling-froyo-7b5dbe.netlify.app/
+![Site Preview](site-preview.png "Site Preview")
+
+https://startling-froyo-7b5dbe.netlify.app/
 
 **Tech stack:**
 - [Astro](https://astro.build/)
