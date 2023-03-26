@@ -6,7 +6,6 @@ export const get: APIRoute = async ({ request }) => {
 	const url = new URL(request.url);
 	const params = new URLSearchParams(url.search);
 	const departingFrom = params.get('departingFrom');
-	const arrivingTo = params.get('arrivingTo');
 
 	const recaptchaURL = `https://api.tfgm.com/odata/Metrolinks?$filter=StationLocation%20eq%20'${departingFrom}'`;
 

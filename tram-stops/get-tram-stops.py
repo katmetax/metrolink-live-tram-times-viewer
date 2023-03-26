@@ -28,12 +28,14 @@ for stop in tramStops:
         # { "St Peter''s Square": "St Peter's Square" }
         stopDictionary[fixedStPetersSquare] = stop
     elif (deansgate in stop):
-        # { "Deansgate - Castlefield": "Deansgate Castlefield" }
+        # { "Deansgate - Castlefield": "Deansgate-Castlefield" }
         stopDictionary[fixedDeansgate] = stop
     else:
         # { "Piccadilly Gardens": "Piccadilly Gardens" }
         stopDictionary[stop] = stop
 
+sortedStopDictionary = dict(sorted(stopDictionary.items()))
+
 with open('./src/data/tramStops.json', 'w', encoding='utf-8') as json_file:
-    json.dump(stopDictionary, json_file, ensure_ascii=False, indent=4)
+    json.dump(sortedStopDictionary, json_file, ensure_ascii=False, indent=4)
 json_file.close()
