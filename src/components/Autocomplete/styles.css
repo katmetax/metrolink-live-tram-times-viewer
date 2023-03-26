@@ -1,8 +1,11 @@
 .autocomplete-list {
   display: flex;
   flex-direction: column;
+  position: absolute;
   overflow: scroll;
   margin-top: -1.5rem;
+  max-height: 16rem;
+  width: 100%;
 }
 
 .autocomplete-list.hide {
