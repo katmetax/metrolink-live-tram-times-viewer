@@ -1,5 +1,7 @@
 # Metrolink Tram Times PWA
 
+A PWA that displays the next few Manchester Metrolink Trams from the specified tram stop.
+
 ![Site Preview](site-preview.png "Site Preview")
 
 https://startling-froyo-7b5dbe.netlify.app/
@@ -49,6 +51,6 @@ To run the Python script run:
 Features that would be nice to have but weren't necessary in the original build of this PWA. These could be picked up at a later date.
 
 - Add dark/light theme toggler
-- Sort info by wait time (default) or destination in alphabetical order
-- Have a "your previous searches" and autocomplete based on them too? Only valid searches get stored
-- Refactor tram displays so it's not just 0-3 manually (tech debt)
+- Give user ability to sort info by wait time (default) or destination in alphabetical order
+- Have a "your previous searches" and autocomplete based on them too? Only valid searches get stored. Only store up to 4 recent searches
+- When a user has searched for their tram stop they should be able to navigate directly to search results on tram stop click rather than having to press the submit button [DONE]

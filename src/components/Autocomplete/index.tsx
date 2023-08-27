@@ -15,9 +15,11 @@ export const Autocomplete = ({ options }: Props) => {
 		const hiddenInput = document.getElementById(
 			'departingFrom'
 		) as HTMLInputElement;
+		const searchForm = document.getElementById('searchForm') as HTMLFormElement;
 
 		userFacingInput.value = value;
 		hiddenInput.value = key;
+		searchForm?.submit();
 
 		setShowList(false);
 	};

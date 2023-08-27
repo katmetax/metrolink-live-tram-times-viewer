@@ -10,7 +10,7 @@ import { FormFieldWithAutocomplete } from '../components/FormFieldWithAutocomple
 			<div>
 				<h1>Find out when the next <span class="text-gradient">Metrolink</span> tram is...</h1>
 				<div class="form-container">
-					<form method="GET" action="/trams">
+					<form method="GET" action="/trams" id="searchForm">
 						<FormFieldWithAutocomplete label="From" placeholder="Piccadilly Gardens" name="departingFrom" required client:load />
 						<button type="submit">Submit</button>
 					</form>
