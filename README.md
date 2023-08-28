@@ -52,5 +52,5 @@ Features that would be nice to have but weren't necessary in the original build 
 
 - Add dark/light theme toggler
 - Give user ability to sort info by wait time (default) or destination in alphabetical order
-- Have a "your previous searches" and autocomplete based on them too? Only valid searches get stored. Only store up to 4 recent searches
+- Have a "your previous searches" and autocomplete based on them too? Only valid searches get stored. Only store up to 4 recent searches [DONE]
 - When a user has searched for their tram stop they should be able to navigate directly to search results on tram stop click rather than having to press the submit button [DONE]

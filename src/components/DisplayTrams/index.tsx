@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import TypeWriter from '../TypeWriter';
 import json from '../../data/tramStops.json';
+import { useStoreRecentTramSearches } from '../../hooks/useStoreRecentTramSearches';
 
 import './styles.css';
 
@@ -20,6 +21,8 @@ export const DisplayTrams = ({ departureStation }: Props) => {
 	const [data, setData] = useState<ITram[] | null>(null);
 	const prettyDepartureStation =
 		tramStops[departureStation as keyof typeof tramStops];
+
+	useStoreRecentTramSearches(departureStation);
 
 	useEffect(() => {
 		const getTramData = async () => {

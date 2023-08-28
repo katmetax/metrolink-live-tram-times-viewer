@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import tram from '../images/tram.svg';
 import { FormFieldWithAutocomplete } from '../components/FormFieldWithAutocomplete';
+import { RecentSearches } from '../components/RecentSearches';
 ---
 
 <Layout title="Metrolink tram times">
@@ -14,6 +15,7 @@ import { FormFieldWithAutocomplete } from '../components/FormFieldWithAutocomple
 						<FormFieldWithAutocomplete label="From" placeholder="Piccadilly Gardens" name="departingFrom" required client:load />
 						<button type="submit">Submit</button>
 					</form>
+					<RecentSearches client:load />
 				</div>
 			</div>
 			<div>
