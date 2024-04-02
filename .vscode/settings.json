@@ -1,9 +1,10 @@
 {
-  "editor.tabSize": 2,
   "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
   "javascript.preferences.quoteStyle": "single",
   "typescript.preferences.quoteStyle": "single",
   "html.completion.attributeDefaultValue": "singlequotes",
   "prettier.jsxSingleQuote": true,
-  "diffEditor.ignoreTrimWhitespace": false
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.tabSize": 2
 }
