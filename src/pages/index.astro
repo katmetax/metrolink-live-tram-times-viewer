@@ -6,58 +6,58 @@ import { RecentSearches } from '../components/RecentSearches';
 ---
 
 <Layout title="Metrolink tram times">
-	<main class="container">
-		<div class="grid">
-			<div>
-				<h1>Find out when the next <span class="text-gradient">Metrolink</span> tram is...</h1>
-				<div class="form-container">
-					<form method="GET" action="/trams" id="searchForm">
-						<FormFieldWithAutocomplete label="From" placeholder="Piccadilly Gardens" name="departingFrom" required client:load />
-						<button type="submit">Submit</button>
-					</form>
-					<RecentSearches client:load />
-				</div>
-			</div>
-			<div>
-				<img src={tram} width="100%" alt="Tram" />
-			</div>
-		</div>
-	</main>
+  <main class="container">
+    <div class="grid">
+      <div>
+        <h1>Find out when the next <span class="text-gradient">Metrolink</span> tram is...</h1>
+        <div class="form-container">
+          <form method="GET" action="/trams" id="searchForm">
+            <FormFieldWithAutocomplete label="From" placeholder="Piccadilly Gardens" name="departingFrom" required client:load />
+            <button type="submit">Submit</button>
+          </form>
+          <RecentSearches client:load />
+        </div>
+      </div>
+      <div>
+        <img src={tram} width="100%" alt="Tram" />
+      </div>
+    </div>
+  </main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		max-width: 60ch;
-		max-height: 100vh;
-		overflow: hidden;
-	}
-	.grid {
-		padding: 0 1.5rem;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 1.5rem 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.form-container {
-		position: relative;
-	}
+  main {
+    margin: auto;
+    max-width: 60ch;
+    max-height: 100vh;
+    overflow: hidden;
+  }
+  .grid {
+    padding: 0 1.5rem;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 1.5rem 0;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .form-container {
+    position: relative;
+  }
 
-	@media screen and (max-width: 780px) {
-		h1 {
-			font-size: 2.5rem;
-		}
+  @media screen and (max-width: 780px) {
+    h1 {
+      font-size: 2.5rem;
+    }
 
-		.form-container {
-			margin: 2rem 0 5rem;
-		}
-	}
+    .form-container {
+      margin: 2rem 0 5rem;
+    }
+  }
 </style>

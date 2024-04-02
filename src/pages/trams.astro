@@ -6,15 +6,15 @@ const departingFrom = Astro.url.searchParams.get('departingFrom') || '';
 
 ---
 <Layout title="Metrolink tram times">
-	<main class="container">
+  <main class="container">
     <DisplayTrams departureStation={departingFrom} client:load />
-	</main>
+  </main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
 </style>
