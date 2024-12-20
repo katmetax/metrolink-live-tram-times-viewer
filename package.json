@@ -11,17 +11,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/netlify": "^2.1.2",
-    "@astrojs/react": "^2.0.2",
-    "@picocss/pico": "^1.5.7",
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "astro": "^2.10.14",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@astrojs/netlify": "^6.0.1",
+    "@astrojs/react": "^4.1.2",
+    "@picocss/pico": "^2.0.6",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "astro": "^5.1.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@vite-pwa/astro": "^0.1.1",
-    "pwa-asset-generator": "^6.2.1"
+    "@vite-pwa/astro": "^0.5.0"
   }
 }

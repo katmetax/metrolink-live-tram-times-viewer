@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import TypeWriter from '../TypeWriter';
 import json from '../../data/tramStops.json';
 import { useStoreRecentTramSearches } from '../../hooks/useStoreRecentTramSearches';
@@ -60,8 +60,8 @@ export const DisplayTrams = ({ departureStation }: Props) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((tram: ITram) => (
-            <>
+          {data.map((tram: ITram, i: Number) => (
+            <Fragment key={`${i}-tram`}>
               {tram[`Dest${0}`] && (
                 <tr key={`${tram.Id + 0}`}>
                   <th scope='row'>{tram[`Dest${0}`]}</th>
@@ -97,7 +97,7 @@ export const DisplayTrams = ({ departureStation }: Props) => {
                   <td>{tram[`Carriages${3}`]}</td>
                 </tr>
               )}
-            </>
+            </Fragment>
           ))}
         </tbody>
       </table>
