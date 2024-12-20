@@ -5,7 +5,7 @@ import AstroPWA from '@vite-pwa/astro';
 import react from '@astrojs/react';
 
 // https://astro.build/config
-import netlify from '@astrojs/netlify/functions';
+import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,6 +14,10 @@ export default defineConfig({
     AstroPWA({
       registerType: 'autoUpdate',
       includeAssets: ['/icons/favicon.svg', '/icons/apple-icon-180.png'],
+      workbox: {
+        clientsClaim: true,
+        skipWaiting: true
+      },
       manifest: {
         name: 'Metrolink Tram Times',
         short_name: 'Metrolink Tram Times',

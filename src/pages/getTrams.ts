@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 
 type Data = Array<{ [k: string]: string }>;
 
-export const get: APIRoute = async ({ request }) => {
+export const GET: APIRoute = async ({ request }) => {
   const url = new URL(request.url);
   const params = new URLSearchParams(url.search);
   const departingFrom = params.get('departingFrom');
